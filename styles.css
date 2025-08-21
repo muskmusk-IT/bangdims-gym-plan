@@ -1,63 +1,109 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0e111a;
-  color: #e8ecff;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f9fc;
+  color: #222;
 }
 
-header {
+/* Navbar */
+.navbar {
+  background: #fff;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar .logo {
+  font-weight: 800;
+  font-size: 20px;
+  color: #0066cc;
+}
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.navbar nav a:hover {
+  color: #0066cc;
+}
+
+/* Hero Section */
+.hero {
   text-align: center;
-  padding: 20px;
-  background: linear-gradient(90deg, #6b8cff, #8aa4ff);
-  color: white;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #0a2b4e, #143d70);
+  color: #fff;
+}
+.hero h1 {
+  font-size: 36px;
+  margin: 0 0 10px;
+}
+.hero p {
+  font-size: 18px;
+  margin: 0;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px;
 }
-
-.day {
-  background: #171e2f;
-  border: 1px solid #283152;
+.card {
+  background: #fff;
+  padding: 20px;
   border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,40,0.3);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
-
-.day h2 {
-  margin-top: 0;
-  color: #7DFFB3;
+.card h2 {
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: #0066cc;
 }
-
-ul {
+.card .desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-
-li {
-  margin: 8px 0;
-  padding: 8px;
-  border-bottom: 1px dashed #283152;
+.card li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-li:last-child { border-bottom: none; }
-
-a {
-  color: #8aa4ff;
+.card li span {
+  color: #666;
+  margin-left: 8px;
+}
+.card li a {
   text-decoration: none;
-  font-weight: bold;
+  color: #fff;
+  background: #0066cc;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.card li a:hover {
+  background: #004c99;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
+/* Footer */
 footer {
   text-align: center;
-  color: #a5aed0;
-  font-size: 12px;
-  margin: 30px 0;
+  padding: 20px;
+  background: #0a2b4e;
+  color: #fff;
+  font-size: 14px;
 }
