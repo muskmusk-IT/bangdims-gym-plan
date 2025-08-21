@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Gym & Cardio Plan — Bang Dims</title>
+<style>
+  :root{--bg:#0f1220;--card:#171a2b;--ink:#e9ecff;--sub:#a9b2d6;--line:#2a2f4a;--btn:#2a3366;--btn2:#3a4490;}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink)}
+  header{padding:20px 14px 6px;text-align:center} h1{margin:0;font-size:24px}
+  .sub{color:var(--sub);font-size:13px}
+  .wrap{max-width:980px;margin:0 auto;padding:14px}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:14px 0 18px}
+  .search{flex:1 1 320px;display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .search input{flex:1;border:none;background:transparent;outline:none;color:var(--ink)}
+  .btn{background:linear-gradient(135deg,#2a356b,#404aa0);border:0;color:#fff;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+  .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:860px){.grid{grid-template-columns:1fr 1fr}}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+  summary{cursor:pointer;display:flex;align-items:center;gap:10px}
+  .chip{font-size:11px;background:#7DFFB3;color:#00210f;padding:2px 8px;border-radius:999px;font-weight:700}
+  .meta{font-size:12px;color:var(--sub);margin:6px 2px 0}
+  .list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .ex{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#1a1f36;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .l{display:flex;gap:10px;align-items:center;min-width:0}
+  .ck{inline-size:18px;block-size:18px}
+  .title{font-weight:650}
+  .reps{font-size:12px;color:var(--sub)}
+  .links{display:flex;gap:8px;flex-wrap:wrap}
+  .a{color:#fff;text-decoration:none;background:var(--btn);border:1px solid var(--btn2);padding:6px 8px;border-radius:8px;font-size:12px}
+  footer{color:var(--sub);font-size:12px;text-align:center;margin:18px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>Weekly Gym & Cardio Plan</h1>
+  <div class="sub">Bang Dims — versi web (offline-ready). Checklist tersimpan otomatis di browser kamu.</div>
+</header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <div class="search">
+      <span>🔎</span><input id="q" placeholder="Cari latihan… (mis. squat, curl, plank)">
+    </div>
+    <button id="reset" class="btn">Reset Checklist</button>
+  </div>
+
+  <div id="grid" class="grid"></div>
+
+  <footer>Link: GIF (FitnessProgramer), BurnFit 3D & YouTube. — © Bang Dims Plan</footer>
+</div>
+
+<script>
+const PLAN = [
+  { day:"Senin – Pull (Back + Biceps)",
+    items:[
+      {n:"Barbell/Dumbbell Row", r:"4×10", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bent-Over-Row.gif"]]},
+      {n:"Lat Pulldown / Pull Up", r:"3×8–10", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif"]]},
+      {n:"Biceps Curl", r:"3×12", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Curl.gif"]]},
+      {n:"Hammer Curl", r:"3×12", L:[["BurnFit 3D","https://burnfit.io/en/library/dumbbell-hammer-curl"]]},
+      {n:"Face Pull", r:"3×15", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Face-Pull.gif"]]}
+    ]},
+  { day:"Selasa – Push (Chest + Shoulder + Triceps)",
+    items:[
+      {n:"Bench Press", r:"4×10", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif"]]},
+      {n:"Incline Dumbbell Press", r:"3×12", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Press.gif"]]},
+      {n:"Shoulder Press", r:"3×12", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Shoulder-Press.gif"]]},
+      {n:"Lateral Raise", r:"3×15", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Lateral-Raise.gif"]]},
+      {n:"Tricep Pushdown", r:"3×12", L:[["YouTube","https://www.youtube.com/watch?v=2-LAMcpzODU"]]}
+    ]},
+  { day:"Rabu – Legs + Core",
+    items:[
+      {n:"Squat", r:"4×10", L:[["YouTube","https://www.youtube.com/watch?v=SW_C1A-rejs"]]},
+      {n:"Romanian Deadlift", r:"3×8", L:[["YouTube","https://www.youtube.com/watch?v=1uDiW5--rAE"]]},
+      {n:"Lunges", r:"3×12/kaki", L:[["YouTube","https://www.youtube.com/watch?v=D7KaRcUTQeE"]]},
+      {n:"Calf Raise", r:"3×15", L:[["YouTube","https://www.youtube.com/watch?v=YMmgqO8Jo-k"]]},
+      {n:"Plank", r:"3×45 detik", L:[["BurnFit 3D","https://burnfit.io/en/library/plank"]]}
+    ]},
+  { day:"Kamis – HIIT (Sprint Interval)",
+    desc:"Sprint 30 detik sekuat tenaga → Jalan santai 1 menit (recovery) → Ulangi 8–10 ronde. Fokus power + stamina.",
+    chip:"8–10 ronde",
+    items:[{n:"Sprint Interval", r:"8–10x", L:[["BurnFit 3D","https://burnfit.io/en/library/sprint"]]}]
+  },
+  { day:"Jumat – Rest / Recovery",
+    desc:"Stretching / foam rolling ringan untuk pemulihan.",
+    items:[{n:"Stretching (contoh)", r:"-", L:[["BurnFit 3D","https://burnfit.io/en/library/standing-quadriceps-stretch"]]}]
+  },
+  { day:"Sabtu – Jogging / Futsal (Opsional)",
+    desc:"Kalau ga jadi futsal, jogging 20–30 menit.",
+    items:[{n:"Jogging / Running", r:"20–30 menit", L:[["BurnFit 3D","https://burnfit.io/en/library/running"]]}]
+  },
+  { day:"Minggu – Full Body Circuit (Light)",
+    items:[
+      {n:"Push-up", r:"15x", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Push-Up.gif"]]},
+      {n:"Bodyweight Squat", r:"20x", L:[["GIF","https://fitnessprogramer.com/wp-content/uploads/2021/02/Bodyweight-Squat.gif"]]},
+      {n:"Plank", r:"30 detik", L:[["BurnFit 3D","https://burnfit.io/en/library/plank"]]},
+      {n:"Burpee", r:"10x", L:[["BurnFit 3D","https://burnfit.io/en/library/burpee"]]}
+    ]}
+];
+
+const KEY='bangdims-gym-checks-v2';
+function load(){ try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return{}} }
+function save(s){ localStorage.setItem(KEY, JSON.stringify(s)); }
+let checks = load();
+
+const grid = document.getElementById('grid');
+function makeCard(section, idx){
+  const d=document.createElement('details'); d.open = idx<2;
+  const s=document.createElement('summary');
+  const h=document.createElement('div'); h.style.display='flex'; h.style.alignItems='center'; h.style.gap='8px';
+  const t=document.createElement('h3'); t.textContent=section.day; t.style.margin='0'; t.style.fontSize='16px';
+  h.appendChild(t);
+  if(section.chip){ const chip=document.createElement('span'); chip.className='chip'; chip.textContent=section.chip; h.appendChild(chip); }
+  s.appendChild(h); d.appendChild(s);
+  if(section.desc){ const p=document.createElement('div'); p.className='meta'; p.textContent=section.desc; d.appendChild(p); }
+  const ul=document.createElement('ul'); ul.className='list';
+  section.items.forEach((it,i)=>{
+    const li=document.createElement('li'); li.className='ex';
+    const left=document.createElement('div'); left.className='l';
+    const id=`${idx}-${i}-${it.n}`;
+    const ck=document.createElement('input'); ck.type='checkbox'; ck.className='ck'; ck.checked=!!checks[id];
+    ck.addEventListener('change',()=>{checks[id]=ck.checked; save(checks);});
+    const info=document.createElement('div');
+    const title=document.createElement('div'); title.className='title'; title.textContent=it.n;
+    const reps=document.createElement('div'); reps.className='reps'; reps.textContent=it.r;
+    info.appendChild(title); info.appendChild(reps);
+    left.appendChild(ck); left.appendChild(info);
+    const links=document.createElement('div'); links.className='links';
+    it.L.forEach(([label,href])=>{ const a=document.createElement('a'); a.href=href; a.target='_blank'; a.rel='noopener'; a.className='a'; a.textContent=label; links.appendChild(a); });
+    li.appendChild(left); li.appendChild(links);
+    ul.appendChild(li);
+  });
+  d.appendChild(ul);
+  return d;
+}
+function render(filter=''){
+  grid.innerHTML='';
+  PLAN.forEach((sec,idx)=>{
+    const q=filter.toLowerCase().trim();
+    const items=q?sec.items.filter(it=>it.n.toLowerCase().includes(q)):sec.items;
+    const card = makeCard({...sec, items}, idx);
+    grid.appendChild(card);
+  });
+}
+render();
+
+document.getElementById('q').addEventListener('input', e=>render(e.target.value));
+document.getElementById('reset').addEventListener('click', ()=>{checks={}; save(checks); document.querySelectorAll('.ck').forEach(c=>c.checked=false);});
+</script>
+</body>
+</html>
