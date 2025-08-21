@@ -2,32 +2,81 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Weekly Gym & Cardio Plan</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header>
+    <h1>Weekly Gym & Cardio Plan</h1>
+    <p>Checklist sederhana versi web — tanpa JS, tinggal centang manual ✔</p>
+  </header>
 
-<header>
-  <div class="hwrap">
-    <h1>Weekly Gym & Cardio Plan <span class="badge">v2</span></h1>
-    <div class="toolbar">
-      <div class="search">
-        <input id="q" placeholder="Cari latihan... (mis. squat, curl, plank)">
-      </div>
-      <button id="reset" class="btn ghost">Reset Checklist</button>
-    </div>
-  </div>
-</header>
+  <main class="container">
 
-<div class="wrap">
-  <div id="grid" class="grid"></div>
-</div>
+    <section class="day">
+      <h2>Senin – Pull (Back + Biceps)</h2>
+      <ul>
+        <li><input type="checkbox"> Barbell/Dumbbell Row — 4×10 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bent-Over-Row.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Lat Pulldown / Pull Up — 3×8–10 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Biceps Curl — 3×12 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Curl.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Hammer Curl — 3×12 [<a href="https://burnfit.io/en/library/dumbbell-hammer-curl" target="_blank">3D</a>]</li>
+        <li><input type="checkbox"> Face Pull — 3×15 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Face-Pull.gif" target="_blank">GIF</a>]</li>
+      </ul>
+    </section>
 
-<footer>
-  Link: GIF (FitnessProgramer), BurnFit 3D & YouTube. — ©Ramdaenerys Targaryen Plan
-</footer>
+    <section class="day">
+      <h2>Selasa – Push (Chest + Shoulder + Triceps)</h2>
+      <ul>
+        <li><input type="checkbox"> Bench Press — 4×10 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Incline Dumbbell Press — 3×12 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Press.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Shoulder Press — 3×12 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Shoulder-Press.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Lateral Raise — 3×15 [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Lateral-Raise.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Tricep Pushdown — 3×12 [<a href="https://www.youtube.com/watch?v=2-LAMcpzODU" target="_blank">YouTube</a>]</li>
+      </ul>
+    </section>
 
-<script src="script.js"></script>
+    <section class="day">
+      <h2>Rabu – Legs + Core</h2>
+      <ul>
+        <li><input type="checkbox"> Squat — 4×10 [<a href="https://www.youtube.com/watch?v=SW_C1A-rejs" target="_blank">YouTube</a>]</li>
+        <li><input type="checkbox"> Romanian Deadlift — 3×8 [<a href="https://www.youtube.com/watch?v=1uDiW5--rAE" target="_blank">YouTube</a>]</li>
+        <li><input type="checkbox"> Lunges — 3×12/kaki [<a href="https://www.youtube.com/watch?v=D7KaRcUTQeE" target="_blank">YouTube</a>]</li>
+        <li><input type="checkbox"> Calf Raise — 3×15 [<a href="https://www.youtube.com/watch?v=YMmgqO8Jo-k" target="_blank">YouTube</a>]</li>
+        <li><input type="checkbox"> Plank — 3×45 detik [<a href="https://burnfit.io/en/library/plank" target="_blank">3D</a>]</li>
+      </ul>
+    </section>
+
+    <section class="day">
+      <h2>Kamis – HIIT (Sprint Interval)</h2>
+      <p>Sprint 30 detik sekuat tenaga → Jalan santai 1 menit → Ulangi 8–10 ronde.</p>
+    </section>
+
+    <section class="day">
+      <h2>Jumat – Rest / Recovery</h2>
+      <p>Stretching / foam rolling ringan [<a href="https://burnfit.io/en/library/standing-quadriceps-stretch" target="_blank">3D</a>]</p>
+    </section>
+
+    <section class="day">
+      <h2>Sabtu – Jogging / Futsal (Opsional)</h2>
+      <p>Jogging 20–30 menit atau main futsal full cardio ⚽</p>
+    </section>
+
+    <section class="day">
+      <h2>Minggu – Full Body Circuit (Ringan)</h2>
+      <ul>
+        <li><input type="checkbox"> Push-up — 15x [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Push-Up.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Bodyweight Squat — 20x [<a href="https://fitnessprogramer.com/wp-content/uploads/2021/02/Bodyweight-Squat.gif" target="_blank">GIF</a>]</li>
+        <li><input type="checkbox"> Plank — 30 detik [<a href="https://burnfit.io/en/library/plank" target="_blank">3D</a>]</li>
+        <li><input type="checkbox"> Burpee — 10x [<a href="https://burnfit.io/en/library/burpee" target="_blank">3D</a>]</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    Link latihan: GIF (FitnessProgramer), BurnFit 3D & YouTube. — ©BangDims Plan
+  </footer>
+
 </body>
 </html>
