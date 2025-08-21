@@ -1,0 +1,67 @@
+:root{
+  --bg:#0e111a; --panel:#131826; --card:#171e2f; --ink:#e8ecff; --muted:#a5aed0; --line:#283152;
+  --brand1:#6b8cff; --brand2:#8aa4ff; --accent:#7DFFB3; --warn:#ffd36b;
+  --shadow: 0 10px 30px rgba(0,0,40,.30);
+}
+[data-theme="light"]{
+  --bg:#f6f8ff; --panel:#ffffff; --card:#ffffff; --ink:#0d1330; --muted:#4f5580; --line:#e3e7ff;
+  --brand1:#3f5fff; --brand2:#5f7aff; --accent:#28c386; --warn:#aa7a00;
+  --shadow: 0 8px 24px rgba(20,30,80,.12);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial;
+  color:var(--ink);
+  background:
+    radial-gradient(900px 600px at 10% -10%, rgba(90,100,255,.18), transparent 60%),
+    radial-gradient(1000px 700px at 110% 10%, rgba(80,255,190,.12), transparent 55%),
+    var(--bg);
+}
+
+/* header & toolbar */
+header{
+  position:sticky; top:0; z-index:50; backdrop-filter: blur(8px);
+  background:linear-gradient(180deg, rgba(10,12,20,.6) 0%, rgba(10,12,20,0) 100%);
+  padding:14px 16px 8px; border-bottom:1px solid rgba(120,130,180,.12);
+}
+.hwrap{max-width:1100px; margin:0 auto; display:flex; gap:14px; align-items:center; justify-content:space-between;}
+h1{margin:0; font-size:clamp(20px,3.2vw,32px); letter-spacing:.2px; display:flex; align-items:center; gap:10px}
+.badge{font-size:11px; padding:2px 8px; border-radius:999px; background:linear-gradient(90deg,var(--brand1),var(--brand2)); color:white; font-weight:700}
+.toolbar{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.search{display:flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); padding:8px 10px; border-radius:12px; min-width:260px}
+.search input{border:none; outline:none; background:transparent; color:var(--ink); width:220px}
+.btn{background:linear-gradient(135deg,var(--brand1),var(--brand2)); border:none; color:white; padding:9px 12px; border-radius:12px; font-weight:700; cursor:pointer; box-shadow:var(--shadow)}
+.ghost{background:transparent; border:1px solid var(--line); color:var(--ink); box-shadow:none}
+.theme{background:transparent; border:1px solid var(--line); color:var(--ink); border-radius:12px; padding:9px 12px; cursor:pointer}
+
+/* layout */
+.wrap{max-width:1100px; margin:0 auto; padding:16px}
+.progress{display:flex; align-items:center; gap:10px; margin:8px 0 18px;}
+.bar{flex:1; height:10px; background:rgba(120,130,180,.22); border-radius:999px; overflow:hidden; border:1px solid var(--line)}
+.fill{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--brand2)); transition:width .35s ease}
+.pct{font-variant-numeric: tabular-nums; color:var(--muted); min-width:56px; text-align:right}
+
+.grid{display:grid; grid-template-columns:1fr; gap:14px}
+@media(min-width:940px){ .grid{grid-template-columns:1fr 1fr} }
+
+/* cards */
+details{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:10px 12px; box-shadow:var(--shadow)}
+summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:10px}
+summary::-webkit-details-marker{display:none}
+.daytitle{font-weight:800; font-size:18px; margin:0}
+.chip{font-size:12px; background:var(--accent); color:#042016; padding:2px 8px; border-radius:999px; font-weight:800}
+.desc{color:var(--muted); font-size:13px; margin:6px 2px 0}
+.list{list-style:none; margin:10px 0 0; padding:0; display:flex; flex-direction:column; gap:10px}
+
+/* exercise rows */
+.ex{display:flex; gap:10px; align-items:center; justify-content:space-between; background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.02)); border:1px dashed var(--line); border-radius:12px; padding:10px 12px}
+.left{display:flex; gap:12px; align-items:center; min-width:0}
+.ck{inline-size:18px; block-size:18px}
+.ttl{font-weight:700}
+.meta{color:var(--muted); font-size:12px}
+.links{display:flex; gap:8px; flex-wrap:wrap}
+.a{display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:white; background:linear-gradient(135deg,#2a356b,#404aa0); padding:7px 10px; border-radius:10px; border:1px solid var(--line)}
+.a.ghost{background:transparent; color:var(--ink)}
+
+footer{color:var(--muted); text-align:center; margin:26px 0 28px; font-size:12px}
