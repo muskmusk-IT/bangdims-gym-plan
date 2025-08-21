@@ -1,4 +1,7 @@
-:root {
+<head>
+  ...
+  <style>
+  :root {
   --bg: #0e111a;
   --panel: #131826;
   --card: #171e2f;
@@ -298,3 +301,5 @@ footer {
   margin: 26px 0 28px;
   font-size: 12px;
 }
+</style>
+</head>
